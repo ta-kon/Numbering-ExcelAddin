@@ -2,7 +2,7 @@ Numbering-ExcelAddin
 連番太郎
 ====
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/raw/master/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/ta-kon/Numbering-ExcelAddin/master/LICENSE)
 
 選択した図形を採番するExcelアドイン
 
@@ -39,10 +39,10 @@ Excelに「連番太郎」というリボンが作成されます。
 アニメGIFを貼付けて実際の動作例を見せます。
 
 ### 2.1. 採番と自動選択
-![NumberingShape](.\movie\NumberingShape.gif)
+![NumberingShape](https://raw.githubusercontent.com/ta-kon/Numbering-ExcelAddin/master/movie/NumberingShape.gif)
 
 ### 2.2. 図形の複製
-![CloneShape](.\movie\CloneShape.gif)
+![CloneShape](https://raw.githubusercontent.com/ta-kon/Numbering-ExcelAddin/master/movie/CloneShape.gif)
 
 ## 3. VS. 
 手動で一つひとつ選択して採番していた作業が
