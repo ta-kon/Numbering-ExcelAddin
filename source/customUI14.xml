@@ -1,0 +1,77 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="View.onRibbonLoad">
+  <ribbon>
+    <tabs>
+      <tab id="NumberingCustomTab" label="連番太郎">
+
+        <group id="procGroup" label="処理">
+          <button id="NumberingButton" label="採番開始" size="large" imageMso="DataTypeNumber"
+           supertip="選択した図形の採番を開始します。"
+           onAction="View.onActionNoumberingButton" />
+
+          <button id="ClearButton" label="テキスト除去" size="large" imageMso="ClearAllFormatting"
+            supertip="選択した図形のテキストを除去します。"
+            onAction="View.onActionClearButton" />
+
+          <button id="CloneButton" label="図形の複製" size="large" imageMso="CopyAllNodeRules"
+            supertip="選択した図形を基本に複製します。"
+            onAction="View.onActionCloneButton" />
+        </group>
+
+        <group id="numberlingGroup" label="採番順序">
+          <dropDown id="sortOrder" label="採番順序：" imageMso="NavForward"  keytip="P" showItemLabel="true" showItemImage="true"
+           supertip="採番する順序を設定します。"
+           getSelectedItemIndex="View.getSortOrderSelectedIndex"
+           onAction="View.onActionSortOrderSlected">
+            <item id="ROW_SORT" label="行単位" imageMso="NavForward" supertip="行ごとに採番します。" />
+            <item id="COLUMN_SORT" label="列単位" imageMso="NavDrillDown" supertip="列ごとに採番します。" />
+            <item id="SELECT_SORT" label="選択順" imageMso="MultipleSelect" supertip="選択した順序で採番します。" />
+          </dropDown>
+
+          <comboBox id="collisionComboBox" label="近接幅：" keytip="C" imageMso="ControlPropertyHeightValue" showItemImage="true" maxLength="10" sizeString="WWWWWWWWWW"
+           supertip="採番する際に、同じ採番範囲の図形だとする範囲を設定します。"
+           getText="View.getCollisionText"
+           onChange="View.onCollisionTextChange">
+            <item id="COLLISION_0px" label="0px" />
+            <item id="COLLISION_10px" label="10px" />
+            <item id="COLLISION_20px" label="20px (標準)" />
+            <item id="COLLISION_30px" label="30px" />
+          </comboBox>
+        </group>
+
+        <group id="labelingGroup" label="採番設定">
+            <checkBox id="isChangeTextCheckBox" label="変更のあった採番は赤色にする" keytip="C"
+                supertip="採番する際に数値が変わったものだけを赤色に変えます。"
+                onAction="View.onActionChangeText"
+                getPressed="View.getChangeTextPressed" />
+            <checkBox id="isContinueNumberCheckBox" label="最初の図形の数値から採番する" keytip="C"
+                supertip="採番順序の最初にあたる図形の数値を開始値とします。"
+                onAction="View.onActionContinueNumberCheckBox"
+                getPressed="View.getContinueNumberPressed" />
+            <editBox  id="startNumberEditBox" label="開始値" sizeString="wwww"  maxLength="4"
+                supertip="入力した開始値で採番します。"
+                getEnabled="View.getStartNumberEnabled"
+                onChange="View.onChangeStartNumberText"
+                getText="View.getStartNumberText" />
+        </group>
+
+        <group id="selectGroup" label="自動選択">
+          <button id="AutoSelectButton" label="自動選択開始" size="large" imageMso="MultipleSelect"
+            supertip="選択した図形を基本に複数選択します。"
+            onAction="View.onActionAutoSelectButton" />
+          <checkBox id="isSelectFigureCheckBox" label="同じ形" keytip="C"
+            supertip="同じ形の図形を選択します。"
+            onAction="View.onActionSelectFigureCheckBox"
+            getPressed="View.getSelectFigureCheckBoxPressed" />
+          <checkBox id="isSelectSizeCheckBox" label="同じ大きさ" keytip="C"
+            supertip="同じ大きさの図形を選択します。"
+            onAction="View.onActionSelectSizeCheckBox"
+            getPressed="View.getSelectSizeCheckBoxPressed" />
+          <checkBox id="isSelectColorCheckBox" label="同じ色" keytip="C"
+            supertip="同じ色の図形を選択します。"
+            onAction="View.onActionSelectColorCheckBox"
+            getPressed="View.getSelectColorCheckBoxPressed" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
