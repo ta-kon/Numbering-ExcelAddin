@@ -14,7 +14,7 @@ Dim objAddin
 
 'アドイン情報を設定 
 addInName = "連番太郎" 
-addInFileName = "連番太郎.xlam"
+addInFileName = "Numbering-ExcelAddin.xlam"
 
 If (MsgBox(addInName & " アドインをアンインストールしますか？", vbYesNo + vbQuestion) = vbNo) Then 
   WScript.Quit 

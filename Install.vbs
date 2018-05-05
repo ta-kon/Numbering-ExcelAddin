@@ -14,7 +14,7 @@ Dim objAddin
 
 'アドイン情報を設定
 addInName = "連番太郎"
-addInFileName = "連番太郎.xlam"
+addInFileName = "Numbering-ExcelAddin.xlam"
 
 Set objWshShell = CreateObject("WScript.Shell")
 Set objFileSys = CreateObject("Scripting.FileSystemObject")
