@@ -79,9 +79,13 @@ Excelに「連番太郎」というリボンが作成されます。
 2. テキストの除去をクリック
 
 ## 6. Install
+
 インストール方法
 
-Install.vbs を実行
+1. 以下の場所からダウンロード  
+https://github.com/ta-kon/Numbering-ExcelAddin/releases
+
+2. Install.vbs を実行
 
 Excelのリボンに「連番太郎」が追加されます。
 
