@@ -19,7 +19,7 @@ Numbering-ExcelAddin
     - [5.2. 選択](#52-選択)
     - [5.3. 複製](#53-複製)
     - [5.4. テキストの除去](#54-テキストの除去)
-- [6. Install](#6-install)
+- [6. Install](#6-Install)
 - [7. Uninstall](#7-uninstall)
 - [8. Thanks](#8-thanks)
 - [9. Licence](#9-licence)
@@ -80,12 +80,11 @@ Excelに「連番太郎」というリボンが作成されます。
 
 ## 6. Install
 
-インストール方法
-
 1. 以下の場所からダウンロード  
 https://github.com/ta-kon/Numbering-ExcelAddin/releases
 
-2. Install.vbs を実行
+2. ダウンロードしたzipファイル内にある  
+Install.vbs を実行
 
 Excelのリボンに「連番太郎」が追加されます。
 
