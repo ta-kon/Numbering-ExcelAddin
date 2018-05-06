@@ -19,7 +19,7 @@ Numbering-ExcelAddin
     - [5.2. 選択](#52-選択)
     - [5.3. 複製](#53-複製)
     - [5.4. テキストの除去](#54-テキストの除去)
-- [6. Install](#6-Install)
+- [6. Install](#6-install)
 - [7. Uninstall](#7-uninstall)
 - [8. Thanks](#8-thanks)
 - [9. Licence](#9-licence)
