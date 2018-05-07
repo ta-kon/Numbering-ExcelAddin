@@ -195,17 +195,81 @@ End Function
 
 Private Function equalsShape(ByVal leftShape As Shape, ByVal rightShape As Shape) As Boolean
 
-  ' 独立性が高い順から比較するため、色の情報から比較
+  ' 独立性が高い順から比較し、比較回数を減らすため、色の情報から比較
   ' VBAでは短絡評価をしないので、一つひとつ評価
   If (IS_SELECT_COLOR) Then
+    ' 塗りつぶしの色
     If (leftShape.Fill.ForeColor.RGB <> rightShape.Fill.ForeColor.RGB) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' 塗りつぶしの表示
+    If (leftShape.Fill.Visible <> rightShape.Fill.Visible) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' 塗りつぶしの透明度
+    If (leftShape.Fill.Transparency  <> rightShape.Fill.Transparency) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' 線色
+    If (leftShape.Line.ForeColor.RGB <> rightShape.Line.ForeColor.RGB) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' 線の表示
+    If (leftShape.Line.Visible <> rightShape.Line.Visible) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' 線の透明度
+    If (leftShape.Line.Transparency <> rightShape.Line.Transparency) Then
       equalsShape = FALSE
       Exit Function
     End If
   End If
 
   If (IS_SELECT_FIGURE) Then
+    '  図形
     If (leftShape.AutoShapeType <> rightShape.AutoShapeType) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' コネクタ
+    If (leftShape.Connector <> rightShape.Connector) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    If (leftShape.Connector And rightShape.Connector) Then
+      ' コネクタの種類
+      If (leftShape.ConnectorFormat.Type <> rightShape.ConnectorFormat.Type) Then
+        equalsShape = FALSE
+        Exit Function
+      End If
+    End If
+
+    ' 点線のスタイル
+    If (leftShape.Line.DashStyle <> rightShape.Line.DashStyle) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' 線種 (1本線, 2本線)
+    If (leftShape.Line.Style <> rightShape.Line.Style) Then
+      equalsShape = FALSE
+      Exit Function
+    End If
+
+    ' 太さ
+    If (leftShape.Line.Weight <> rightShape.Line.Weight) Then
       equalsShape = FALSE
       Exit Function
     End If
@@ -291,7 +355,7 @@ Private Function setShapeNumbering(ByRef shapeArray() As Shape, Optional startNu
     Set shape = shapeArray(index)
 
     If (IS_CHANGE_TEXT) Then
-      Call changeColor(shape, Str(number))
+      Call changeColor(shape, CStr(number))
     End If
 
     Call setShapeText(shape, number)
@@ -307,7 +371,8 @@ End Function
 
 Private Sub changeColor(ByVal shape As Shape, ByVal compareText As String)
     Dim shapeText As String
-    shapeText = getShapeText(shape)
+    shapeText = Trim(getShapeText(shape))
+    compareText = Trim(compareText)
 
     if (shapeText <> "" And shapeText <> compareText) Then
       Call setShapeTextColor(shape)
