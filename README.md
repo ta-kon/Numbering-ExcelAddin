@@ -104,7 +104,7 @@ VBAコーディングの目安にさせて頂きました。
 [Try #008 – VBAのモダンな開発環境を構築してみた | dayjournal memo](https://day-journal.com/memo/try-008/)  
 VBAをVS Codeでコーディングする際に参考にしました。
 
-[tcsh/text-scripting-vba: Modules for text scripting on VBA](https://github.com/tcsh/text-scripting-vba)
+[tcsh/text-scripting-vba: Modules for text scripting on VBA](https://github.com/tcsh/text-scripting-vba)  
 VBAをVS Codeでコーディングする際に使用したマクロ。これが無かったら、開発に挫折していました。  
 
 [IRibbonUIオブジェクトがNothingになったときの対処法](http://www.ka-net.org/ribbon/ri64.html)  
