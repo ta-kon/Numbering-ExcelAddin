@@ -1,5 +1,4 @@
-Numbering-ExcelAddin  
-連番太郎
+連番太郎 (Excel add-in)
 ====
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/ta-kon/Numbering-ExcelAddin/master/LICENSE)
