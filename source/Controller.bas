@@ -400,8 +400,11 @@ End Function
 
 Private Function isDescShapeRow(ByRef leftShape As Shape, ByRef rightShape As Shape) As Boolean
 
+  Dim space As Long
+  space = WorksheetFunction.Max(leftShape.Height, rightShape.Height) * COLLISION
+
   ' 同じ高さ (行) に存在している場合
-  If (isCollision(leftShape.Top, rightShape.Top, COLLISION)) Then
+  If (isCollision(leftShape.Top, rightShape.Top, space)) Then
       ' 左からの座標を比較 (leftShapeの方が大きいとき)
       isDescShapeRow = isDescLocation(leftShape.Left, rightShape.Left)
     Exit Function
@@ -413,8 +416,11 @@ End Function
 
 Private Function isDescShapeColum(ByRef leftShape As Shape, ByRef rightShape As Shape) As Boolean
 
+  Dim space As Long
+  space = WorksheetFunction.Max(leftShape.Width, rightShape.Width) * COLLISION
+
   ' 同じ列 に存在している場合
-  If (isCollision(leftShape.Left, rightShape.Left, COLLISION)) Then
+  If (isCollision(leftShape.Left, rightShape.Left, space)) Then
       ' 上からの座標を比較 (leftShapeの方が大きいとき)
       isDescShapeColum = isDescLocation(leftShape.Top, rightShape.Top)
     Exit Function
@@ -424,7 +430,7 @@ Private Function isDescShapeColum(ByRef leftShape As Shape, ByRef rightShape As 
   isDescShapeColum = isDescLocation(leftShape.Left, rightShape.Left)
 End Function
 
-Private Function isCollision(ByVal left As Long, ByVal right As Long, ByVal collision As Long) As Boolean
+Private Function isCollision(ByVal left As Long, ByVal right As Long, ByVal collision As Double) As Boolean
   ' 幅を考慮した数値の比較
   isCollision = (Abs(left - right) < collision)
 End Function

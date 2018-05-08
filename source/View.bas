@@ -79,7 +79,7 @@ Public Sub endProcess(ByVal processName As String, ByVal count As Long, Optional
   setStatusBar(processMessage)
 End Sub
 
-Sub onRibbonLoad(ribbon As IRibbonUI)
+Sub onRibbonLoad(ByRef ribbon As IRibbonUI)
   ' リボンの初期処理
 
   Call initModel()
@@ -93,19 +93,19 @@ Sub onRibbonLoad(ribbon As IRibbonUI)
   I_RIBBON_UI.Invalidate
 End Sub
 
-Sub getStartNumberEnabled(control As IRibbonControl, ByRef returnedVal)
+Sub getStartNumberEnabled(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 入力した開始値で採番します。
   returnedVal = ENABLED_SART_NUMBER
 End Sub
 
-Sub getStartNumberText(control As IRibbonControl, ByRef returnedVal)
+Sub getStartNumberText(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 入力した開始値で採番します。
   ' If (ENABLED_SART_NUMBER) Then
   ' End If
   returnedVal = START_NUM
 End Sub
 
-Sub onChangeStartNumberText(control As IRibbonControl, text As String)
+Sub onChangeStartNumberText(ByRef control As IRibbonControl, ByRef text As String)
   ' 入力した開始値で採番します。
   On Error GoTo ERR_NUMBER_FORMAT
     START_NUM = CLng(text)
@@ -117,17 +117,17 @@ Sub onChangeStartNumberText(control As IRibbonControl, text As String)
     Call setMsgAndStatus(message)
 End Sub
 
-Sub getSortOrderSelectedIndex(control As IRibbonControl, ByRef index)
+Sub getSortOrderSelectedIndex(ByRef control As IRibbonControl, ByRef index)
   ' 採番順序：
   index = SELECT_SORT_ORDER
 End Sub
 
-Sub getCollisionText(control As IRibbonControl, ByRef returnedVal)
+Sub getCollisionText(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 近接幅：
   returnedVal = COLLISION_NUM_STRING
 End Sub
 
-Sub onCollisionTextChange(control As IRibbonControl, text As String)
+Sub onCollisionTextChange(ByRef control As IRibbonControl, ByRef text As String)
   ' 近接幅：
   COLLISION_NUM_STRING = text
 
@@ -154,37 +154,37 @@ Sub onCollisionTextChange(control As IRibbonControl, text As String)
 
 End Sub
 
-Sub getSelectFigureCheckBoxPressed(control As IRibbonControl, ByRef returnedVal)
+Sub getSelectFigureCheckBoxPressed(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 同じ形を選択する
   returnedVal = IS_SELECT_FIGURE
 End Sub
 
-Sub getSelectSizeCheckBoxPressed(control As IRibbonControl, ByRef returnedVal)
+Sub getSelectSizeCheckBoxPressed(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 同じ大きさを選択する
   returnedVal = IS_SELECT_SIZE
 End Sub
 
-Sub getSelectColorCheckBoxPressed(control As IRibbonControl, ByRef returnedVal)
+Sub getSelectColorCheckBoxPressed(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 同じ色を選択する
   returnedVal = IS_SELECT_COLOR
 End Sub
 
-Sub getChangeTextPressed(control As IRibbonControl, ByRef returnedVal)
+Sub getChangeTextPressed(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 変更のあった採番は赤色にする
   returnedVal = IS_CHANGE_TEXT
 End Sub
 
-Sub onActionChangeText(control As IRibbonControl, pressed As Boolean)
+Sub onActionChangeText(ByRef control As IRibbonControl, ByRef pressed As Boolean)
   ' 変更のあった採番は赤色にする
   IS_CHANGE_TEXT = pressed
 End Sub
 
-Sub getContinueNumberPressed(control As IRibbonControl, ByRef returnedVal)
+Sub getContinueNumberPressed(ByRef control As IRibbonControl, ByRef returnedVal)
   ' 最初の図形の数値から採番する
   returnedVal = NOT(ENABLED_SART_NUMBER)
 End Sub
 
-Sub onActionContinueNumberCheckBox(control As IRibbonControl, pressed As Boolean)
+Sub onActionContinueNumberCheckBox(ByRef control As IRibbonControl, ByRef pressed As Boolean)
   ' 最初の図形の数値から採番する
   ENABLED_SART_NUMBER = NOT(pressed)
 
@@ -199,15 +199,15 @@ Sub onActionContinueNumberCheckBox(control As IRibbonControl, pressed As Boolean
   I_RIBBON_UI.InvalidateControl "startNumberEditBox"
 End Sub
 
-Sub onActionSelectFigureCheckBox(control As IRibbonControl, pressed As Boolean)
+Sub onActionSelectFigureCheckBox(ByRef control As IRibbonControl, ByRef pressed As Boolean)
   IS_SELECT_FIGURE = pressed
 End Sub
 
-Sub onActionSelectSizeCheckBox(control As IRibbonControl, pressed As Boolean)
+Sub onActionSelectSizeCheckBox(ByRef control As IRibbonControl, ByRef pressed As Boolean)
   IS_SELECT_SIZE = pressed
 End Sub
 
-Sub onActionSelectColorCheckBox(control As IRibbonControl, pressed As Boolean)
+Sub onActionSelectColorCheckBox(ByRef control As IRibbonControl, ByRef pressed As Boolean)
   IS_SELECT_COLOR = pressed
 End Sub
 
@@ -227,7 +227,7 @@ Private Function GetRibbon(ByVal lRibbonPointer As Long) As Object
   p = 0: MoveMemory ribbonObj, p, LenB(p)
 End Function
 
-Sub onActionSortOrderSlected(control As IRibbonControl, itemID As String, index As Integer)
+Sub onActionSortOrderSlected(ByRef control As IRibbonControl, ByRef itemID As String, ByRef index As Integer)
   ' 採番する順序を設定します。
   Select Case itemID
     Case "ROW_SORT"

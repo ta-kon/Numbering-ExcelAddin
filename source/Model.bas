@@ -38,14 +38,14 @@ Public Const FORMAT_DATE As String = "yyyy/MM/dd hh:mm:ss"
 ' ƒŠƒ{ƒ“
 Public I_RIBBON_UI As IRibbonUI
 
-' “¯‚¶—ñ‚¾‚Æ”»’è‚·‚é‚‚³
-Public Const COLLISION_HEIGHT As Long = 20
+' ' “¯‚¶—ñ‚¾‚Æ”»’è‚·‚é‚‚³
+' Public Const COLLISION_HEIGHT As Long = 20
 
-' “¯‚¶s‚¾‚Æ”»’è‚·‚é•
-Public Const COLLISION_WITH As Long = 40
+' ' “¯‚¶s‚¾‚Æ”»’è‚·‚é•
+' Public Const COLLISION_WITH As Long = 40
 
 ' ‹ßÚ•
-Public COLLISION As Long
+Public COLLISION As Double
 
 Public COLLISION_NUM_STRING As String
 
