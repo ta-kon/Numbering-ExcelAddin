@@ -28,13 +28,14 @@
           </dropDown>
 
           <comboBox id="collisionComboBox" label="近接幅：" keytip="C" imageMso="ControlPropertyHeightValue" showItemImage="true" maxLength="10" sizeString="WWWWWWWWWW"
-           supertip="採番する際に、同じ採番範囲の図形だとする範囲を設定します。"
+           supertip="採番する際に、同じ採番範囲の図形だとする範囲を設定します。図形を比較する際に重なる図形の幅の倍率を指定できます。"
            getText="View.getCollisionText"
            onChange="View.onCollisionTextChange">
-            <item id="COLLISION_0px" label="0px" />
-            <item id="COLLISION_10px" label="10px" />
-            <item id="COLLISION_20px" label="20px (標準)" />
-            <item id="COLLISION_30px" label="30px" />
+            <item id="COLLISION.x0.00" label="0倍 (非隣接)" />
+            <item id="COLLISION.x0.25" label="0.25倍" />
+            <item id="COLLISION_x0.50" label="0.50倍 (標準)" />
+            <item id="COLLISION_x0.75" label="0.75倍" />
+            <item id="COLLISION_x1.00" label="1.00倍" />
           </comboBox>
         </group>
 

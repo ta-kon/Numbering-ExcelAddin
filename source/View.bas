@@ -132,22 +132,26 @@ Sub onCollisionTextChange(ByRef control As IRibbonControl, ByRef text As String)
   COLLISION_NUM_STRING = text
 
   Select Case text
-    Case "0px"
+    Case "0倍 (非隣接)"
       COLLISION = 0
-    Case "10px"
-      COLLISION = 10
-    Case "20px (標準)"
-      COLLISION = 20
-    Case "30px"
-      COLLISION = 30
+    Case "0.25倍"
+      COLLISION = 0.25
+    Case "0.50倍 (標準)"
+      COLLISION = 0.50
+    Case "0.75倍"
+      COLLISION = 0.75
+    Case "1.00倍"
+      COLLISION = 1.00
     Case Else
-      Dim s As String
-      s = Replace(text, "px", "")
-      If IsNumeric(s) Then
-        COLLISION = CLng(s)
+      Dim strDbl As String
+      strDbl = Trim(text)
+      strDbl = Replace(strDbl, "倍", "")
+      strDbl = Trim(strDbl)
+      If IsNumeric(strDbl) Then
+        COLLISION = CDbl(strDbl)
       Else
         Dim message As String
-        message = "数値を入力してください。(単位: px), 現在の値=" & text
+        message = "数値を入力してください。(単位: 倍), 現在の値=" & text
         Call setMsgAndStatus(message)
       End If
   End Select
