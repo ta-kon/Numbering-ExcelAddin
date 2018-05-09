@@ -112,7 +112,7 @@ Public Sub shapeClone()
   cloneCount = Application.InputBox(Prompt:="図形を複製する数を入力してください。", Title:="図形の複製", Type:=1)
 
   If (cloneCount <=0) Then
-    Call setStatusBar(processName & "を行うためには、正数を入力してください。")
+    Call setStatusBar(processName & "を行うためには、自然数（正の整数）を入力してください。")
     Exit Sub
   End If
 
