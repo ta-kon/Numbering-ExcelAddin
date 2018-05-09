@@ -148,7 +148,7 @@ Sub onCollisionTextChange(ByRef control As IRibbonControl, ByRef text As String)
       strDbl = Replace(strDbl, "倍", "")
       strDbl = Trim(strDbl)
       If IsNumeric(strDbl) Then
-        COLLISION = CDbl(strDbl)
+        COLLISION = Abs(CDbl(strDbl))
       Else
         Dim message As String
         message = "数値を入力してください。(単位: 倍), 現在の値=" & text

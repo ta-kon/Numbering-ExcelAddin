@@ -432,7 +432,7 @@ End Function
 
 Private Function isCollision(ByVal left As Long, ByVal right As Long, ByVal collision As Double) As Boolean
   ' •‚ğl—¶‚µ‚½”’l‚Ì”äŠr
-  isCollision = (Abs(left - right) < collision)
+  isCollision = (Abs(left - right) <= collision)
 End Function
 
 Private Function isDescLocation(ByVal left As Long, ByVal right As Long) As Boolean
