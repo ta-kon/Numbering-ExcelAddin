@@ -86,7 +86,10 @@ https://github.com/ta-kon/Numbering-ExcelAddin/releases
 展開したフォルダ内にある  
 Install.vbs を実行
 
-Excelのリボンに「連番太郎」が追加されます。
+3. インストール完了  
+Excelのリボンに「連番太郎」が自動で追加されます。
+
+※ インストール後は、展開したファイルは削除しても大丈夫です。
 
 ## 7. Uninstall
 アンインストール方法
